@@ -2,12 +2,24 @@ import os
 import requests
 import json
 
-def call_openai_api(api_key, chat_history, temperature=0.7, system_prompt=None):
+# DeepSeek Models
+deepseek_models = [
+    "deepseek-chat",       # DeepSeek-V3: Upgraded chat model
+    "deepseek-reasoner",   # DeepSeek-R1: Advanced reasoning model
+    "DeepSeek-V2",         # DeepSeek-V2: Mixture-of-Experts language model
+    "DeepSeek-V2-Lite",    # DeepSeek-V2-Lite: Lighter version of DeepSeek-V2
+    "DeepSeek-Coder",      # DeepSeek-Coder: Specialized code language model
+    "DeepSeek-Math",       # DeepSeek-Math: Specialized in mathematical tasks
+    "DeepSeek-VL"          # DeepSeek-VL: Vision-Language model for multimodal tasks
+]
+
+
+def call_deepseek_api(api_key, chat_history, temperature=0.7, system_prompt=None):
     """
-    Makes a raw OpenAI API call using the given parameters.
+    Makes a raw Deepseek API call using the given parameters.
 
     Args:
-        api_key (str): Your OpenAI API key.
+        api_key (str): Your Deepseek API key.
         chat_history (list): A list of dictionaries representing the chat history, e.g.,
             [{"role": "user", "content": "Hello"}, {"role": "assistant", "content": "Hi there!"}]
         temperature (float): The temperature parameter for controlling response randomness.
